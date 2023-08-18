@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/18 13:24:13 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/18 15:37:05 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,5 +27,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+
 
 .PHONY: all clean fclean re
