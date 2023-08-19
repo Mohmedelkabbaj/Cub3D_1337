@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamaarou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 17:27:03 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/10/26 17:11:55 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:05:29 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,13 @@ char	**ft_split(char const *s, char sep)
 		{
 			start = i;
 			i = ww(s, sep, i);
-			p[j++] = ft_substr(s, start, (i - start));
-			(!p) && (free_space(p));
+			p[j] = ft_substr(s, start, (i - start));
+			if (!p[j])
+			{
+				free_space(p);
+				return (NULL);
+			}
+			j++;
 		}
 		else
 			i++;

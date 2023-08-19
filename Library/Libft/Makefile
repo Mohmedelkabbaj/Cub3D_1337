@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hamaarou <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 14:48:35 by hamaarou          #+#    #+#              #
-#    Updated: 2022/10/27 19:03:38 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/18 17:21:38 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,12 @@ $(NAME):$(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 $(OBJ):$(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
+	@ $(CC) $(CFLAGS) -c $(SRC)
 
 clean:
-	rm -rf $(OBJ)
+	@ rm -rf $(OBJ)
 
 fclean:clean
-	rm -rf $(NAME)
+	@ rm -rf $(NAME)
 
 re:fclean all

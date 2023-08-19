@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamaarou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:30:16 by hamaarou          #+#    #+#             */
-/*   Updated: 2022/11/13 13:21:24 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:04:41 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,3 @@ char	*get_next_line(int fd)
 	line = get_line_ss(&string, line);
 	return (line);
 }
-
