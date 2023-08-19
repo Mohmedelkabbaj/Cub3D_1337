@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:30:16 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/18 17:04:41 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/19 14:34:33 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ss(int fd, char *buffer, char *tmp, char **string)
 	int		bytes;
 
 	bytes = 1;
-	while (ft_strchr(tmp) == 0 && bytes != 0)
+	while (ft_strchr_g(tmp) == 0 && bytes != 0)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes <= 0)
@@ -32,7 +32,7 @@ char	*ss(int fd, char *buffer, char *tmp, char **string)
 			break ;
 		}
 		buffer[bytes] = '\0';
-		tmp = ft_strjoin(&tmp, buffer);
+		tmp = ft_strjoin_g(&tmp, buffer);
 	}
 	return (tmp);
 }
@@ -47,7 +47,7 @@ char	*ft_read(int fd, char **string)
 	if (!buffer)
 		return (NULL);
 	buffer[0] = 0;
-	tmp = ft_strjoin(string, buffer);
+	tmp = ft_strjoin_g(string, buffer);
 	tmp = ss(fd, buffer, tmp, string);
 	free(buffer);
 	if (tmp && tmp[0] == 0)
@@ -81,7 +81,7 @@ char	*get_line_ss(char **string, char *line)
 	while (++j < i)
 		buff[j] = line[j];
 	buff[j] = '\0';
-	*string = ft_substr(line, i, ft_strlen(line));
+	*string = ft_substr_g(line, i, ft_strlen_g(line));
 	free(line);
 	return (buff);
 }

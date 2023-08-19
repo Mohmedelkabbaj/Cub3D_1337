@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:49:02 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/19 12:41:59 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/19 17:05:37 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,39 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include "../Library/Libft/libft.h"
+#include "../Library/Get_next_line/get_next_line.h"
+
+enum e_direction
+{
+    north,
+    south,
+    east,
+    west
+}  t_direction;
+
+typedef struct t_parse_direction
+{
+    char    *north;//no
+    char    *south;//so
+    char    *east;//ea
+    char    *west;//we
+}   t_parse_direction;
+
+typedef struct t_cub3d{
+    char    *file_name;
+    int     fd;
+
+    t_parse_direction   parse_direct;
+    
+}   t_cub3d;
 
 
-typedef struct t_parse_dirct{
-    char *no;
+void    start_parsing(t_cub3d *cub3d);
+void    parse_direction(t_cub3d *cub3d, char *line);
 
-}   s_parse_dirc
+t_direction	cardinal_direction(char *line);
+
+
 
 #endif

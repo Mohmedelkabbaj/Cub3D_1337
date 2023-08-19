@@ -6,18 +6,24 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/18 17:19:14 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:48:35 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "./includes/cub3d.h"
 
-
-#include "./Library/Get_next_line/get_next_line.h"
-
-int main ()
+int main(int ac, char *av[])
 {
-    get_next_line(0);
-    printf("Hello World\n");
-    return 0;
+	t_cub3d *cub3d;
+
+	if (ac == 2)
+	{
+		cub3d.file_name = av[1];
+		cub3d.fd = open(cub3d.file_name, O_RDONLY);
+		if (cub3d.fd == -1)
+			return (1);
+		start_parsing(cub3d);
+	}
+	return (1);
 }
