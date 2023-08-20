@@ -18,30 +18,37 @@
 #include "../Library/Libft/libft.h"
 #include "../Library/Get_next_line/get_next_line.h"
 
-typedef struct t_parse_direction
+typedef struct s_parse_direction
 {
-    char    *north;//no
-    char    *south;//so
-    char    *east;//ea
-    char    *west;//we
-
+    char    *north_texture;//no
+    char    *south_texture;//so
+    char    *east_texture;//ea
+    char    *west_texture;//we
 
 }   t_parse_direction;
 
-typedef struct t_cub3d{
+typedef struct s_rgb
+{
+    int     r;
+    int     g;
+    int     b;
+}   t_rgb;
+
+
+typedef struct s_cub3d{
     char    *file_name;
     int     fd;
 
     t_parse_direction   parse_direct;
+    t_rgb               floor;
+    t_rgb               ceiling;
     
 }   t_cub3d;
-
 
 void    start_parsing(t_cub3d *cub3d);
 void    parse_direction(t_cub3d *cub3d, char *line);
 
 int	cardinal_direction(char *line);
-
 
 
 #endif
