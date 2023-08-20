@@ -18,20 +18,14 @@
 #include "../Library/Libft/libft.h"
 #include "../Library/Get_next_line/get_next_line.h"
 
-enum e_direction
-{
-    north,
-    south,
-    east,
-    west
-}  t_direction;
-
 typedef struct t_parse_direction
 {
     char    *north;//no
     char    *south;//so
     char    *east;//ea
     char    *west;//we
+
+
 }   t_parse_direction;
 
 typedef struct t_cub3d{
@@ -46,7 +40,7 @@ typedef struct t_cub3d{
 void    start_parsing(t_cub3d *cub3d);
 void    parse_direction(t_cub3d *cub3d, char *line);
 
-t_direction	cardinal_direction(char *line);
+int	cardinal_direction(char *line);
 
 
 

@@ -12,15 +12,15 @@
 
 #include "./includes/cub3d.h"
 
-t_direction cardinal_direction(char *line)
+int	cardinal_direction(char *line)
 {
 	if (line[0] == 'N' && line[1] == 'O')
-		return (north);
+		return (1);
 	else if (line[0] == 'S' && line[1] == 'O')
-		return (south);
+		return (2);
 	else if (line[0] == 'E' && line[1] == 'A')
-		return (east);
+		return (3);
 	else if (line[0] == 'W' && line[1] == 'E')
-		return (west);
+		return (4);
 	return (-1);
 }

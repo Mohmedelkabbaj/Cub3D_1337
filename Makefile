@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME=Cub3D
-CC=clang
+CC=cc
 CFLAGS=-Wall -Wextra -Werror 
 
 SRC= cub3d.c 
@@ -34,23 +34,23 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	@ echo "$(GREEN)Building Libft...$(NC)"
-	@ make -C $(LIBFT_DIR)
+	@ make -C $(LIBFT_DIR) > /dev/null
 	@ echo "$(GREEN)Building Get_next_line...$(NC)"
-	@ make -C $(GNL_DIR)
+	@ make -C $(GNL_DIR) > /dev/null
 	@ echo "$(GREEN)Compiling $(NAME)...$(NC)"
 	@ $(CC) $(CFLAGS)  $(SRC) $(LIBFT_DIR)/libft.a $(GNL_DIR)/GNL  -o $(NAME) 
 	@ echo "$(GREEN)Finished compiling $(NAME) ✅ ✅ $(NC)"
 
 clean:
 	@ echo "$(ORANGE)Cleaning object files...$(NC)"
-	@ make clean -C $(LIBFT_DIR)
-	@ make clean -C $(GNL_DIR)
+	@ make clean -C $(LIBFT_DIR) > /dev/null
+	@ make clean -C $(GNL_DIR) > /dev/null
 	@ rm -f $(OBJ)
 
 fclean: clean
 	@ echo "$(ORANGE)Cleaning executable...$(NC)"
-	@ make fclean -C $(LIBFT_DIR)
-	@ make fclean -C $(GNL_DIR)
+	@ make fclean -C $(LIBFT_DIR)  > /dev/null
+	@ make fclean -C $(GNL_DIR) > /dev/null
 	@ rm -f $(NAME)
 
 re: fclean all

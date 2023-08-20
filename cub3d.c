@@ -15,7 +15,7 @@
 
 int main(int ac, char *av[])
 {
-	t_cub3d *cub3d;
+	t_cub3d cub3d;
 
 	if (ac == 2)
 	{
@@ -23,7 +23,7 @@ int main(int ac, char *av[])
 		cub3d.fd = open(cub3d.file_name, O_RDONLY);
 		if (cub3d.fd == -1)
 			return (1);
-		start_parsing(cub3d);
+		//start_parsing(&cub3d);
 	}
 	return (1);
 }
