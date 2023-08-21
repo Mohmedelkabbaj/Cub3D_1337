@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/20 17:08:29 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/21 18:21:19 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,10 @@ NAME=Cub3D
 CC=cc
 CFLAGS=-Wall -Wextra -Werror 
 
-SRC= cub3d.c Parsing/cardinal_directions.c Parsing/read_map.c
+SRC= cub3d.c Parsing/cardinal_directions.c Parsing/read_map.c Parsing/free_array.c Parsing/parsing_textures.c
 
 OBJ=$(SRC:.c=.o)
 
-all: $(NAME)
-OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = ./Library/Libft
 GNL_DIR = ./Library/Get_next_line

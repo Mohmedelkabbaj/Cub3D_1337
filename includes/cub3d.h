@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:49:02 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/21 15:14:43 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:20:02 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,28 @@ typedef struct s_cub3d{
     
 }   t_cub3d;
 
+
+//+ Parsing cardinal Functions +//
 void	start_parsing(t_cub3d *cub3d);
-void	parse_direction(t_cub3d *cub3d, char *line);
+int     parse_direction(t_cub3d *cub3d, char *line);
 void	free_array(char **array);
 int		cardinal_direction(char *line);
-int		fill_textures(char **split, t_cub3d *cub3d);
+void	fill_textures(char **split, t_cub3d *cub3d);
 void	check_textures(t_cub3d *cub3d);
 
+//+ Parsing RGB Functions +//
+// ,,
+// 3 number
+// >= 0 && <= 255
+// char
+
+
+
+//+ Parsing Map Functions +//
+
+
+//+Free Functions +//
+void	free_array(char **array);
 
 
 #endif
