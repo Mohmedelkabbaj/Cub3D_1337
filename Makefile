@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/19 17:07:44 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/20 17:08:29 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=Cub3D
 CC=cc
 CFLAGS=-Wall -Wextra -Werror 
 
-SRC= cub3d.c 
+SRC= cub3d.c Parsing/cardinal_directions.c Parsing/read_map.c
 
 OBJ=$(SRC:.c=.o)
 

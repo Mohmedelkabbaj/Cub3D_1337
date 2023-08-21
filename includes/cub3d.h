@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:49:02 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/19 17:05:37 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/21 10:23:22 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ typedef struct s_cub3d{
     
 }   t_cub3d;
 
-void    start_parsing(t_cub3d *cub3d);
-void    parse_direction(t_cub3d *cub3d, char *line);
+void	start_parsing(t_cub3d *cub3d);
+void	parse_direction(t_cub3d *cub3d, char *line);
+void	free_array(char **array);
+int		cardinal_direction(char *line);
+int		fill_textures(char **split, t_cub3d *cub3d);
+void	check_textures(t_cub3d *cub3d);
 
-int	cardinal_direction(char *line);
 
 
 #endif
