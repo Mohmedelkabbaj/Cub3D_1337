@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/21 11:59:36 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:37:38 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,9 @@ void	start_parsing(t_cub3d *cub3d)
 	{
 		
 		line = ft_strtrim(line, " ");
-		if (cardinal_direction(line) == 0)
+		if (cardinal_direction(line))
 		{
 			parse_direction(cub3d, line);
-			
 			free(line);
 		}
 		// else if (line[0] == 'F')

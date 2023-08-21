@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/21 11:59:52 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/21 14:52:11 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int main(int ac, char *av[])
 {
 	t_cub3d cub3d;
 
-	cub3d.parse_direct.north_texture = NULL;
-	cub3d.parse_direct.south_texture = NULL;
-	cub3d.parse_direct.east_texture = NULL;
-	cub3d.parse_direct.west_texture = NULL;
+	// cub3d.parse_direct.north_texture = NULL;
+	// cub3d.parse_direct.south_texture = NULL;
+	// cub3d.parse_direct.east_texture = NULL;
+	// cub3d.parse_direct.west_texture = NULL;
 	if (ac == 2)
 	{
 		cub3d.file_name = av[1];
