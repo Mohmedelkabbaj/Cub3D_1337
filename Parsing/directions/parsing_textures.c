@@ -6,11 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:48:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/21 17:48:46 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:42:20 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	fill_textures(char **split, t_cub3d *cub3d)
 {

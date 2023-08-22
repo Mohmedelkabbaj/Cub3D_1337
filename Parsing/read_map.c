@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 12:49:21 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:56:34 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	start_parsing(t_cub3d *cub3d)
 				exit(EXIT_FAILURE);
 		}
 		else if (line[0] == 'F')
-			parse_floor_color(cub3d, line);
-		// else if (line[0] == 'C')
-		// 	parse_ceiling_color(cub3d, line);
+			parse_floor_color(cub3d, line, 'F');
+		else if (line[0] == 'C')
+			parse_floor_color(cub3d, line, 'C');
 		// else if (line[0] == '1' || line[0] == '0')
 		// 	parse_map(cub3d, line);
 		else

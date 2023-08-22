@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 12:58:39 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:02:24 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ int main(int ac, char *av[])
 			return (1);
 		start_parsing(&cub3d);
 		check_textures(&cub3d);
-		
-		printf("r = %d\n", cub3d.floor.r);
-		printf("g = %d\n", cub3d.floor.g);
-		printf("b = %d\n", cub3d.floor.b);
-		printf("aaa");
 		
 	}
 	return (1);

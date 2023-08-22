@@ -6,11 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 12:02:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/21 15:20:06 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:42:14 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	cardinal_direction(char *line)
 {
