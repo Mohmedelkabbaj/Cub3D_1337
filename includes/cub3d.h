@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:49:02 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/21 18:20:02 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:55:05 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void	check_textures(t_cub3d *cub3d);
 // 3 number
 // >= 0 && <= 255
 // char
+int	comma_check(char *line);
+void	parse_floor_color(t_cub3d *cub3d, char *line);
+
 
 
 
