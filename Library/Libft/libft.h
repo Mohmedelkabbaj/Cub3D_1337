@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:26:04 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 11:57:43 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:22:38 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int num);
+int		ft_isspace(char c);
 int		ft_isprint(int c);
 int		ft_tolower(int j);
 int		ft_toupper(int j);

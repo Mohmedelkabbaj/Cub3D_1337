@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:48:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 18:42:20 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:02:05 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void	fill_textures(char **split, t_cub3d *cub3d)
 			return ;
 		}
 		else
+		{
+			free(tmp);
 			return ;
+		}
 	}
 	return ;
 }
@@ -63,6 +66,6 @@ int    parse_direction(t_cub3d *cub3d, char *line)
 		free_array(split);
 		ft_putendl_fd("\033[0;31m Error Invalid line\033[0m", 2);
 		return (1);
-	}
+	} 
 	return (0);
 }

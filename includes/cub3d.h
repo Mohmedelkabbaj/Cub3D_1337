@@ -43,7 +43,7 @@ typedef struct s_cub3d{
 
 
 //+ Parsing cardinal Functions +//
-void	start_parsing(t_cub3d *cub3d);
+int		start_parsing(t_cub3d *cub3d);
 int		parse_direction(t_cub3d *cub3d, char *line);
 void	free_array(char **array);
 int		cardinal_direction(char *line);
@@ -53,7 +53,7 @@ void	check_textures(t_cub3d *cub3d);
 //+ Parsing RGB Functions +//
 
 int		comma_check(char *line);
-void	parse_floor_color(t_cub3d *cub3d, char *line, char type);
+int		parse_floor_color(t_cub3d *cub3d, char *line, char type);
 int		result_length(char *line);
 int		check_isdigit(char *line);
 int		check_rang_rgb(t_cub3d *cub3d, int r, int g, int b, char type);
@@ -65,6 +65,6 @@ char	*get_rgb(char *line);
 
 //+Free Functions +//
 void	free_array(char **array);
-
+void	free_textures(t_cub3d *cub3d);
 
 #endif

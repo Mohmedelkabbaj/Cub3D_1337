@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 19:02:24 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:31:24 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,15 @@ int main(int ac, char *av[])
 		cub3d.fd = open(cub3d.file_name, O_RDONLY);
 		if (cub3d.fd == -1)
 			return (1);
-		start_parsing(&cub3d);
-		check_textures(&cub3d);
-		
+		if (start_parsing(&cub3d) == EXIT_FAILURE)
+		{
+			check_textures(&cub3d);
+			free_textures(&cub3d);
+			close(cub3d.fd);
+			return (1);
+		}
+		close(cub3d.fd);
+		return (0);
 	}
 	return (1);
 }

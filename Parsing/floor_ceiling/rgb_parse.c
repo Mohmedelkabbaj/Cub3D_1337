@@ -6,12 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:07:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 18:59:37 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:56:20 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
 
 char	*get_rgb(char *line)
 {
@@ -21,10 +20,12 @@ char	*get_rgb(char *line)
 	
 	i = 0;
 	j = 0;
-	rgb = (char *)malloc(sizeof(char) * result_length(line) + 1); // 2 ==> comma
+	rgb = (char *)malloc(sizeof(char) * result_length(line) + 1);
+	if (rgb == NULL)
+		return (NULL);
 	while (line[i])
 	{
-		if (ft_isdigit(line[i]) || ft_isalpha(line[i]) || line[i] == ',')
+		if (!ft_isspace(line[i]))
 		{
 			rgb[j] = line[i];
 			j++;
@@ -68,7 +69,7 @@ int	check_rang_rgb(t_cub3d *cub3d, int r, int g, int b, char type)
 	return (1);
 }
 
-void	parse_floor_color(t_cub3d *cub3d, char *line, char type)
+int	parse_floor_color(t_cub3d *cub3d, char *line, char type)
 {
 	char	*rgb;
 	char	**split;
@@ -77,18 +78,21 @@ void	parse_floor_color(t_cub3d *cub3d, char *line, char type)
 	if (comma_check(line) != 0 || rgb == NULL)
 	{
 		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	split = ft_split(rgb, ',');
 	if (split == NULL || check_isdigit(split[0]) != 0 
 		|| check_isdigit(split[1]) != 0 || check_isdigit(split[2]) != 0)
 	{
 		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	if (check_rang_rgb(cub3d, ft_atoi(split[0]), ft_atoi(split[1]), ft_atoi(split[2]), type) != 0)
 	{
 		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
+	free_array(split);
+	free(rgb);
+	return (EXIT_SUCCESS);
 }
