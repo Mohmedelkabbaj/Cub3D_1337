@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/23 18:31:24 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 21:26:42 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,18 @@ int main(int ac, char *av[])
 			return (1);
 		if (start_parsing(&cub3d) == EXIT_FAILURE)
 		{
-			check_textures(&cub3d);
 			free_textures(&cub3d);
 			close(cub3d.fd);
 			return (1);
 		}
+		check_textures(&cub3d);
+		
+		/*
+			Enter your Ray Casting code here
+		*/
+
+		
+		free_textures(&cub3d);
 		close(cub3d.fd);
 		return (0);
 	}

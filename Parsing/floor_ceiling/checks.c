@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:38:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/22 17:39:42 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:50:39 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	comma_check(char *line)
 	i = 0;
 	comma = 0;
 	comma2 = 0;
-
 	while (line[i])
 	{
 		if (line[i] == ',')
@@ -55,12 +54,10 @@ int	result_length(char *line)
 int check_isdigit(char *line)
 {
 	int i;
-	
 
 	i = 0;
 	while (line[i])
 	{
-		
 		if (ft_isdigit(line[i]) == 0)
 			return (1);
 		i++;

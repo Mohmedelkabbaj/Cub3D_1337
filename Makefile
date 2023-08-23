@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/23 18:04:54 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/23 20:05:02 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC= cub3d.c \
 	Parsing/read_map.c \
 	Parsing/directions/cardinal_directions.c Parsing/directions/parsing_textures.c \
 	Parsing/floor_ceiling/rgb_parse.c Parsing/floor_ceiling/checks.c \
-	Parsing/free/free_array.c  Parsing/free/free_textures.c \
+	Parsing/free/free_array.c  Parsing/free/free_textures.c  Parsing/free/free_rgb.c\
 	
 OBJ=$(SRC:.c=.o)
 

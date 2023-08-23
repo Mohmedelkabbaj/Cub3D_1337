@@ -66,5 +66,5 @@ char	*get_rgb(char *line);
 //+Free Functions +//
 void	free_array(char **array);
 void	free_textures(t_cub3d *cub3d);
-
+void	free_rgb(char *rgb, char *tmp);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:07:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/23 18:56:20 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/23 20:25:32 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,19 @@ char	*get_rgb(char *line)
 
 char    *cut_rgb(char *rgb)
 {
+	char	*tmp;
+	
 	if (rgb[0] == 'F' && ft_isdigit(rgb[1]))
-		return (ft_substr(rgb, 0 + 1, ft_strlen(rgb) - 0));
+	{
+		tmp = ft_substr(rgb, 0 + 1, ft_strlen(rgb) - 0);
+		return (tmp);
+	}
 	else if (rgb[0] == 'C' && ft_isdigit(rgb[0 + 1]))
-	    return (ft_substr(rgb, 0 + 1, ft_strlen(rgb) - 0));
+	{
+		tmp = ft_substr(rgb, 0 + 1, ft_strlen(rgb) - 0);
+	    return (tmp);
+	}
+		
 	return (NULL);
 
 }
@@ -69,30 +78,38 @@ int	check_rang_rgb(t_cub3d *cub3d, int r, int g, int b, char type)
 	return (1);
 }
 
-int	parse_floor_color(t_cub3d *cub3d, char *line, char type)
+int parse_floor_color(t_cub3d *cub3d, char *line, char type)
 {
-	char	*rgb;
-	char	**split;
-	
-	rgb = cut_rgb(get_rgb(line));
-	if (comma_check(line) != 0 || rgb == NULL)
+    char *rgb;
+    char **split;
+	char *tmp;
+
+	split = NULL;
+	tmp = get_rgb(line);
+	rgb = cut_rgb(tmp);
+    if (comma_check(line) != 0 || rgb == NULL)
+	{
+        ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
+        free_rgb(rgb, tmp);
+        return (EXIT_FAILURE);
+    }
+    split = ft_split(rgb, ',');
+    if (split == NULL || check_isdigit(split[0]) != 0 ||
+        check_isdigit(split[1]) != 0 || check_isdigit(split[2]) != 0)
 	{
 		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
+		free_array(split);
+		free_rgb(rgb, tmp);
 		return (EXIT_FAILURE);
 	}
-	split = ft_split(rgb, ',');
-	if (split == NULL || check_isdigit(split[0]) != 0 
-		|| check_isdigit(split[1]) != 0 || check_isdigit(split[2]) != 0)
+    if (check_rang_rgb(cub3d, ft_atoi(split[0]), ft_atoi(split[1]), ft_atoi(split[2]), type) != 0)
 	{
-		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
-		return (EXIT_FAILURE);
-	}
-	if (check_rang_rgb(cub3d, ft_atoi(split[0]), ft_atoi(split[1]), ft_atoi(split[2]), type) != 0)
-	{
-		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
-		return (EXIT_FAILURE);
-	}
-	free_array(split);
-	free(rgb);
-	return (EXIT_SUCCESS);
+        ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
+        free_array(split);
+        free_rgb(rgb, tmp);
+        return (EXIT_FAILURE);
+    }
+    free_array(split);
+    free_rgb(rgb, tmp);
+    return (EXIT_SUCCESS);
 }
