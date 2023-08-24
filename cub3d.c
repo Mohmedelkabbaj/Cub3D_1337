@@ -6,12 +6,25 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/24 12:16:20 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:24:28 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "./includes/cub3d.h"
+void	printf_test(t_cub3d cub3d)
+{
+	printf("NORTH : %s\n", cub3d.parse_direct.north_texture);
+	printf("SOUTH : %s\n", cub3d.parse_direct.south_texture);	
+	printf("EAST : %s\n", cub3d.parse_direct.east_texture);
+	printf("WEST : %s\n", cub3d.parse_direct.west_texture);
+
+	printf("FLOOR : %d %d %d\n", cub3d.floor.r, cub3d.floor.g, cub3d.floor.b);
+	printf("CEILING : %d %d %d\n", cub3d.ceiling.r, cub3d.ceiling.g, cub3d.ceiling.b);
+
+	printf("MAP : {%s}\n", cub3d.map_1d);
+}
+
 
 int main(int ac, char *av[])
 {
@@ -36,8 +49,8 @@ int main(int ac, char *av[])
 		/*
 			Enter your Ray Casting code here
 		*/
-
-		
+		printf_test(cub3d);
+		free(cub3d.map_1d);
 		free_textures(&cub3d);
 		close(cub3d.fd);
 		return (0);

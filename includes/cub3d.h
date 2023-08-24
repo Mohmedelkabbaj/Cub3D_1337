@@ -36,6 +36,8 @@ typedef struct s_rgb
 typedef struct s_cub3d{
 	char				*file_name;
 	int					fd;
+	char				*map_1d;
+	char				**map_2d;
 	t_parse_direction   parse_direct;
 	t_rgb				floor;
 	t_rgb				ceiling;

@@ -6,13 +6,13 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/24 12:46:40 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/24 15:10:26 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=Cub3D
 CC=cc
-CFLAGS=-Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror -g3 -fsanitize=address
 
 SRC= cub3d.c \
 	Parsing/read_map.c \
