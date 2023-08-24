@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                           */
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
@@ -42,6 +42,9 @@ typedef struct s_cub3d{
 }	t_cub3d;
 
 
+//+initilization structure Functions +//
+void	init_textures(t_cub3d *cub3d);
+void	init_rgb(t_cub3d *cub3d);
 //+ Parsing cardinal Functions +//
 int		start_parsing(t_cub3d *cub3d);
 int		parse_direction(t_cub3d *cub3d, char *line);
@@ -61,6 +64,10 @@ char	*cut_rgb(char *rgb);
 char	*get_rgb(char *line);
 
 //+ Parsing Map Functions +//
+int		textures_is_fill(t_cub3d *cub3d);
+int		floor_ceiling_is_color(t_cub3d *cub3d);
+int		is_map_last(t_cub3d *cub3d);
+
 
 
 //+Free Functions +//

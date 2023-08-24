@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/23 20:34:52 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/24 12:44:47 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,24 @@ int	start_parsing(t_cub3d *cub3d)
 				return (EXIT_FAILURE);
 			}
 		}
-		// else if (line[0] == '1' || line[0] == '0')
-		// 	parse_map(cub3d, line);
+		else if (line[0] == '1' || line[0] == '0')
+		{
+			if (!is_map_last(cub3d))
+			{
+				ft_putendl_fd("\033[0;31m 📛 Error Invalid line 📛\033[0m", 2);
+				free(line);
+				return (EXIT_FAILURE);
+			}
+			else
+			{
+				printf("Map is last\n");
+				free(line);
+				return (EXIT_SUCCESS);
+			}
+		}
 		else
 		{
-			ft_putendl_fd("\033[0;31m Error Invalid line\033[0m", 2);
+			ft_putendl_fd("\033[0;31m 📛Error Invalid Map 📛\033[0m", 2);
 			free(line);
 			return (EXIT_FAILURE);
 		}
