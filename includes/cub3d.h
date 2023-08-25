@@ -38,6 +38,7 @@ typedef struct s_cub3d{
 	int					fd;
 	char				*map_1d;
 	char				**map_2d;
+	int					map_height;
 	t_parse_direction   parse_direct;
 	t_rgb				floor;
 	t_rgb				ceiling;
@@ -69,7 +70,11 @@ char	*get_rgb(char *line);
 int		textures_is_fill(t_cub3d *cub3d);
 int		floor_ceiling_is_color(t_cub3d *cub3d);
 int		is_map_last(t_cub3d *cub3d);
-
+void	map_height(t_cub3d *cub3d);
+int		first_last_lines(char *line);
+int		first_last_column(char *line);
+int		is_surrounded(t_cub3d *cub3d);
+int		map_check(t_cub3d *cub3d);
 
 
 //+Free Functions +//

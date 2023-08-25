@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_map_closed.c                                    :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 13:08:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 17:53:31 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/08/25 12:44:34 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/08/25 17:57:12 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int is_surrounded(t_cub3d *cub3d)
+int	map_check(t_cub3d *cub3d)
 {
-	int	i;
+	if (is_surrounded(cub3d) == 1)
+        return (1);
+    
 
-	i = 0;
-	map_height(cub3d);
-	while(cub3d->map_2d[i])
-	{
-		if(!first_last_lines(cub3d->map_2d[0])
-			|| !first_last_lines(cub3d->map_2d[cub3d->map_height - 1])
-			|| !first_last_column(cub3d->map_2d[i]))
-				return (1);
-		i++;
-	}
-	return (0);
+
+
+    return (0);
 }

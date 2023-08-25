@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_map_closed.c                                    :+:      :+:    :+:   */
+/*   map_lines.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 13:08:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 17:53:31 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/08/25 16:10:18 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/08/25 17:25:48 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int is_surrounded(t_cub3d *cub3d)
+ void	map_height(t_cub3d *cub3d)
+{
+	cub3d->map_height = 0;
+	while (cub3d->map_2d[cub3d->map_height])
+		cub3d->map_height++;
+}
+
+int	first_last_lines(char *line)
 {
 	int	i;
 
 	i = 0;
-	map_height(cub3d);
-	while(cub3d->map_2d[i])
+	while (line[i])
 	{
-		if(!first_last_lines(cub3d->map_2d[0])
-			|| !first_last_lines(cub3d->map_2d[cub3d->map_height - 1])
-			|| !first_last_column(cub3d->map_2d[i]))
-				return (1);
+		if (line[i] != '1' && line[i] != ' ')
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
+}
+
+int first_last_column(char *line)
+{
+	if (line[0] != '1' || line[ft_strlen(line) - 1] != '1')
+		return (0);
+    return (1);
 }

@@ -6,13 +6,13 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/24 15:10:26 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/25 18:00:54 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=Cub3D
 CC=cc
-CFLAGS=-Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror #-g3 -fsanitize=address
 
 SRC= cub3d.c \
 	Parsing/read_map.c \
@@ -20,7 +20,7 @@ SRC= cub3d.c \
 	Parsing/floor_ceiling/rgb_parse.c Parsing/floor_ceiling/checks.c \
 	Parsing/free/free_array.c  Parsing/free/free_textures.c  Parsing/free/free_rgb.c\
 	Parsing/init_struct/init.c \
-	Parsing/map/map_is_last.c
+	Parsing/map/map_is_last.c Parsing/map/is_map_closed.c  Parsing/map/map_lines.c Parsing/map/map_check.c \
 	
 OBJ=$(SRC:.c=.o)
 
