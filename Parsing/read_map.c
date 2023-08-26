@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 12:09:46 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 21:37:53 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int start_parsing(t_cub3d *cub3d)
 			result = parse_floor_color(cub3d, line, line[0]);
 		else if (is_map(line))
 		{
-			if (is_map_last(cub3d))
+			if (is_map_last(cub3d) == 1)
 			{
 				//map_hundled(cub3d, line);
 				cub3d->map_1d  = NULL;
@@ -48,9 +48,11 @@ int start_parsing(t_cub3d *cub3d)
 				}
 				cub3d->map_2d = ft_split(cub3d->map_1d, '\n');
 				map_height(cub3d);
-				// if (map_check(cub3d) == 1)
-				// 	result = EXIT_FAILURE;
+				if (map_check(cub3d) == 1)
+					result = EXIT_FAILURE;
 			}
+			else
+				result = EXIT_FAILURE;
 		}
 		else
 			result = EXIT_FAILURE;

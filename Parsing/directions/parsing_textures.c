@@ -6,13 +6,13 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:48:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 11:23:31 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 21:27:34 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	fill_textures(char **split, t_cub3d *cub3d)
+int	fill_textures(char **split, t_cub3d *cub3d)
 {
 	int		i;
 	char	*tmp;
@@ -25,24 +25,21 @@ void	fill_textures(char **split, t_cub3d *cub3d)
 		tmp = ft_strtrim(split[1], " ");
 		if (tmp[0] == '.' && tmp[1] == '/')
 		{
-			if (split[0][0] == 'N' && split[0][1] == 'O')
+			if (split[0][0] == 'N' && split[0][1] == 'O' && cub3d->parse_direct.north_texture == NULL)
 				cub3d->parse_direct.north_texture = ft_strtrim(tmp, "\n");
-			else if (split[0][0] == 'S' && split[0][1] == 'O')
+			else if (split[0][0] == 'S' && split[0][1] == 'O' && cub3d->parse_direct.south_texture == NULL)
 				cub3d->parse_direct.south_texture = ft_strtrim(tmp, "\n");
-			else if (split[0][0] == 'E' && split[0][1] == 'A')
+			else if (split[0][0] == 'E' && split[0][1] == 'A' && cub3d->parse_direct.east_texture == NULL)
 				cub3d->parse_direct.east_texture = ft_strtrim(tmp, "\n");
-			else if (split[0][0] == 'W' && split[0][1] == 'E')
+			else if (split[0][0] == 'W' && split[0][1] == 'E' && cub3d->parse_direct.west_texture == NULL)
 				cub3d->parse_direct.west_texture = ft_strtrim(tmp, "\n");
-			free(tmp);
-			return ;
+			else
+				return (free(tmp), EXIT_FAILURE);
 		}
 		else
-		{
-			free(tmp);
-			return ;
-		}
+			return (free(tmp), EXIT_FAILURE);
 	}
-	return ;
+	return(EXIT_SUCCESS);
 }
 
 
@@ -59,9 +56,16 @@ int    parse_direction(t_cub3d *cub3d, char *line)
 		i++;
 	if (i == 2)
 	{
-		fill_textures(split, cub3d);
-		free_array(split);
-		return (free(line), 0);
+		if (fill_textures(split, cub3d) == EXIT_FAILURE)
+		{
+			free_array(split);
+			return (free(line), EXIT_FAILURE);
+		}
+		else
+		{
+			free_array(split);
+			return (free(line), EXIT_SUCCESS);
+		}
 	}
 	else
 	{

@@ -53,8 +53,8 @@ int		start_parsing(t_cub3d *cub3d);
 int		parse_direction(t_cub3d *cub3d, char *line);
 void	free_array(char **array);
 int		cardinal_direction(char *line);
-void	fill_textures(char **split, t_cub3d *cub3d);
-void	check_textures(t_cub3d *cub3d);
+int		fill_textures(char **split, t_cub3d *cub3d);
+int		check_textures(t_cub3d *cub3d);
 
 //+ Parsing RGB Functions +//
 
@@ -65,6 +65,7 @@ int		check_isdigit(char *line);
 int		check_rang_rgb(t_cub3d *cub3d, int r, int g, int b, char type);
 char	*cut_rgb(char *rgb);
 char	*get_rgb(char *line);
+int		rgb(t_cub3d cub3d);
 
 //+ Parsing Map Functions +//
 int		textures_is_fill(t_cub3d *cub3d);
@@ -78,6 +79,7 @@ int		map_check(t_cub3d *cub3d);
 int		is_map(char *line);
 char	**to_rectangle(char **map, size_t line_length);
 size_t	tall_line(char **map);
+char	*get_line(char *line, size_t max);
 
 //+Free Functions +//
 void	free_array(char **array);

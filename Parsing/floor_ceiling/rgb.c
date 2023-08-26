@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_array.c                                       :+:      :+:    :+:   */
+/*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 17:21:01 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 21:32:52 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/08/26 20:42:05 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/08/26 20:54:36 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-//free double pointer
-void	free_array(char **array)
+int rgb(t_cub3d cub3d)
 {
-	if (!array)
-        return; // If the array is already NULL, nothing to free
-    int i = 0;
-    while (array[i]) {
-        free(array[i]);
-        i++;
+    if (cub3d.ceiling.r == -1 && cub3d.ceiling.g == -1 && cub3d.ceiling.b == -1 &&
+        cub3d.floor.r == -1 && cub3d.floor.g == -1 && cub3d.floor.b == -1)
+    {
+        printf("here\n");
+        return (0);
     }
-    free(array);
+    return (1);
 }

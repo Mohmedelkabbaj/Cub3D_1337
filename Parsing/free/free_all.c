@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:31:08 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 18:51:12 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:37:23 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	free_all(t_cub3d *cub3d)
 {
-	if (cub3d->map_1d)
-		free(cub3d->map_1d);
 	free_textures(cub3d);
 	free_array(cub3d->map_2d);
 }
