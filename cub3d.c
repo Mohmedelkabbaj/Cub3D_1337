@@ -6,12 +6,13 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 17:27:51 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:46:09 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "./includes/cub3d.h"
+
 void	printf_test(t_cub3d cub3d)
 {
 	// printf("NORTH : %s\n", cub3d.parse_direct.north_texture);
@@ -27,6 +28,14 @@ void	printf_test(t_cub3d cub3d)
 	while (cub3d.map_2d[i])
 	{
 		printf("MAP : {%s}\n", cub3d.map_2d[i]);
+		i++;
+	}
+	i = 0;
+	char **m = to_rectangle(cub3d.map_2d, tall_line(cub3d.map_2d));
+	printf("------------------------------------------------\n");
+	while(m[i])
+	{
+		printf("MAP : {%s}\n", m[i]);
 		i++;
 	}
 }
@@ -46,21 +55,16 @@ int main(int ac, char *av[])
 			return (1);
 		if (start_parsing(&cub3d) == EXIT_FAILURE)
 		{
-			free_textures(&cub3d);
-			free(cub3d.map_1d);
-			free_array(cub3d.map_2d);
+			free_all(&cub3d);
 			close(cub3d.fd);
 			return (1);
 		}
 		check_textures(&cub3d);
-		
 		/*
 			Enter your Ray Casting code here
 		*/
 		printf_test(cub3d);
-		free(cub3d.map_1d);
-		free_textures(&cub3d);
-		free_array(cub3d.map_2d);
+		free_all(&cub3d);
 		close(cub3d.fd);
 		return (0);
 	}

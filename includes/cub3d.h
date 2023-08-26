@@ -75,10 +75,13 @@ int		first_last_lines(char *line);
 int		first_last_column(char *line);
 int		is_surrounded(t_cub3d *cub3d);
 int		map_check(t_cub3d *cub3d);
-
+int		is_map(char *line);
+char	**to_rectangle(char **map, size_t line_length);
+size_t	tall_line(char **map);
 
 //+Free Functions +//
 void	free_array(char **array);
 void	free_textures(t_cub3d *cub3d);
 void	free_rgb(char *rgb, char *tmp);
+void	free_all(t_cub3d *cub3d);
 #endif

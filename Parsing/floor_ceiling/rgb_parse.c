@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:07:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/23 20:25:32 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:23:58 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,14 @@ int parse_floor_color(t_cub3d *cub3d, char *line, char type)
 	char *tmp;
 
 	split = NULL;
+	line = ft_strtrim(line, " ");
 	tmp = get_rgb(line);
 	rgb = cut_rgb(tmp);
     if (comma_check(line) != 0 || rgb == NULL)
 	{
         ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
         free_rgb(rgb, tmp);
-        return (EXIT_FAILURE);
+        return (free(line), EXIT_FAILURE);
     }
     split = ft_split(rgb, ',');
     if (split == NULL || check_isdigit(split[0]) != 0 ||
@@ -100,16 +101,16 @@ int parse_floor_color(t_cub3d *cub3d, char *line, char type)
 		ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
 		free_array(split);
 		free_rgb(rgb, tmp);
-		return (EXIT_FAILURE);
+		return (free(line), EXIT_FAILURE);
 	}
     if (check_rang_rgb(cub3d, ft_atoi(split[0]), ft_atoi(split[1]), ft_atoi(split[2]), type) != 0)
 	{
         ft_putendl_fd("\033[0;31m Error Invalid floor color\033[0m", 2);
         free_array(split);
         free_rgb(rgb, tmp);
-        return (EXIT_FAILURE);
+        return (free(line), EXIT_FAILURE);
     }
     free_array(split);
     free_rgb(rgb, tmp);
-    return (EXIT_SUCCESS);
+    return (free(line), EXIT_SUCCESS);
 }

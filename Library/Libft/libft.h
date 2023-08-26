@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:26:04 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/24 15:35:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:18:33 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*ft_strrchr(char *s, int c);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s1);
 void	*ft_calloc(size_t count, size_t size);
+void	*ft_calloc_char(size_t count, size_t size, char c);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlcat(char *dest, char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

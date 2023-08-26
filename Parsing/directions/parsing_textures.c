@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:48:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/23 20:50:36 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:23:31 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int    parse_direction(t_cub3d *cub3d, char *line)
 	(void)cub3d;
 
 	i = 0;
+	line = ft_strtrim(line, " ");
 	split = ft_split(line, ' ');
 	while (split[i])
 		i++;
@@ -60,13 +61,13 @@ int    parse_direction(t_cub3d *cub3d, char *line)
 	{
 		fill_textures(split, cub3d);
 		free_array(split);
-		return (0);
+		return (free(line), 0);
 	}
 	else
 	{
 		free_array(split);
 		ft_putendl_fd("\033[0;31m Error Invalid line\033[0m", 2);
-		return (1);
+		return (free(line), 1);
 	}
-	return (0);
+	return (free(line), 0);
 }

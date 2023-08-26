@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 18:00:18 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:09:46 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ int start_parsing(t_cub3d *cub3d)
 	char	*line;
 	int		result;
 	int		dir_result;
-	//char	*map_line;
 
 	result = EXIT_SUCCESS;
-
 	while ((line = get_next_line(cub3d->fd)))
 	{
-		line = ft_strtrim(line, " ");
+		///line = ft_strtrim(line, " ");
 		if (line[0] == '\n')
 		{
 			free(line);
@@ -34,10 +32,11 @@ int start_parsing(t_cub3d *cub3d)
 			result = parse_direction(cub3d, line);
 		else if (line[0] == 'F' || line[0] == 'C')
 			result = parse_floor_color(cub3d, line, line[0]);
-		else if (line[0] == '1' || line[0] == '0')
+		else if (is_map(line))
 		{
 			if (is_map_last(cub3d))
 			{
+				//map_hundled(cub3d, line);
 				cub3d->map_1d  = NULL;
 				cub3d->map_2d = NULL;
 				while (line)
@@ -49,8 +48,8 @@ int start_parsing(t_cub3d *cub3d)
 				}
 				cub3d->map_2d = ft_split(cub3d->map_1d, '\n');
 				map_height(cub3d);
-				if (map_check(cub3d) == 1)
-					result = EXIT_FAILURE;
+				// if (map_check(cub3d) == 1)
+				// 	result = EXIT_FAILURE;
 			}
 		}
 		else

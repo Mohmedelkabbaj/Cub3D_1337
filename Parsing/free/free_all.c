@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_rgb.c                                         :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 20:03:25 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 18:51:03 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/08/25 18:31:08 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/08/25 18:51:12 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	free_rgb(char *rgb, char *tmp)
+void	free_all(t_cub3d *cub3d)
 {
-	if (rgb != NULL)
-		free(rgb);
-	if (tmp != NULL)
-		free(tmp);
+	if (cub3d->map_1d)
+		free(cub3d->map_1d);
+	free_textures(cub3d);
+	free_array(cub3d->map_2d);
 }
