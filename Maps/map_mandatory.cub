@@ -1,15 +1,12 @@
 
-F 255,222, 204
-C 225, 30,0
 
 NO ./pics/mandatory/def/colorstone.xpm
 SO ./pics/mandatory/def/eagle.xpm
 EA ./pics/mandatory/def/redbrick.xpm
 WE ./pics/mandatory/def/purplestone.xpm
 
-
-
-
+F 255,222, 204
+C 225, 30,050
 
 
 

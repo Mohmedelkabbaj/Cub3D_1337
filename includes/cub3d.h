@@ -66,6 +66,7 @@ int		check_rang_rgb(t_cub3d *cub3d, int r, int g, int b, char type);
 char	*cut_rgb(char *rgb);
 char	*get_rgb(char *line);
 int		rgb(t_cub3d cub3d);
+int		rgb_is_set(t_cub3d *cub3d);
 
 //+ Parsing Map Functions +//
 int		textures_is_fill(t_cub3d *cub3d);
