@@ -81,6 +81,13 @@ int		is_map(char *line);
 char	**to_rectangle(char **map, size_t line_length);
 size_t	tall_line(char **map);
 char	*get_line(char *line, size_t max);
+int		check_newline(char *map_1d);
+
+
+
+
+//+config file
+int		config_file_is_set(t_cub3d cub3d);
 
 //+Free Functions +//
 void	free_array(char **array);

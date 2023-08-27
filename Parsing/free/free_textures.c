@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:03:48 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 20:29:23 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:58:01 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	free_textures(t_cub3d *cub3d)
         free(cub3d->parse_direct.east_texture);
     if (cub3d->parse_direct.west_texture != NULL)
         free(cub3d->parse_direct.west_texture);
+    
 }

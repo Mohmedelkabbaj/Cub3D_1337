@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 17:27:03 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 12:50:20 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:12:31 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	free_space(char **p)
 		free(p[i]);
 		i++;
 	}
+	free(p);
 	return (1);
 }
 

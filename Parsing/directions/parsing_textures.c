@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:48:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 21:27:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:02:39 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	fill_textures(char **split, t_cub3d *cub3d)
 	i = 0;
 	while (split[i])
 		i++;
+	tmp = ft_strtrim(split[1], " ");
 	if (i == 2)
 	{
-		tmp = ft_strtrim(split[1], " ");
 		if (tmp[0] == '.' && tmp[1] == '/')
 		{
 			if (split[0][0] == 'N' && split[0][1] == 'O' && cub3d->parse_direct.north_texture == NULL)
@@ -39,7 +39,7 @@ int	fill_textures(char **split, t_cub3d *cub3d)
 		else
 			return (free(tmp), EXIT_FAILURE);
 	}
-	return(EXIT_SUCCESS);
+	return(free(tmp), EXIT_SUCCESS);
 }
 
 

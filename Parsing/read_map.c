@@ -6,23 +6,11 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/27 11:57:44 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:09:41 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/cub3d.h"
-
-int	check_newline(char *map_1d)
-{
-	int	i;
-	
-	i = -1;
-	while(map_1d[++i])
-		if (map_1d[i] == '\n' && map_1d[i + 1] == '\n')
-			return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
-
 
 int start_parsing(t_cub3d *cub3d)
 {
@@ -31,6 +19,8 @@ int start_parsing(t_cub3d *cub3d)
 	int		dir_result;
 
 	result = EXIT_SUCCESS;
+	cub3d->map_1d  = NULL;
+	cub3d->map_2d = NULL;
 	while ((line = get_next_line(cub3d->fd)))
 	{
 		if (line[0] == '\n')
@@ -47,8 +37,6 @@ int start_parsing(t_cub3d *cub3d)
 		{
 			if (is_map_last(cub3d) == 1)
 			{
-				cub3d->map_1d  = NULL;
-				cub3d->map_2d = NULL;
 				if (line[0] != '\n' || line[0] != '\0' || line[0] != '\t' || line[0] != ' ')
 				{
 					while (line)
@@ -71,10 +59,7 @@ int start_parsing(t_cub3d *cub3d)
 			result = EXIT_FAILURE;
 		free(line);
 		if (result == EXIT_FAILURE)
-		{
-			ft_putendl_fd("\033[0;31m 📛Error Invalid Map📛 \033[0m", 2);
 			break;
-		}
 	}
 	return (result);
 }

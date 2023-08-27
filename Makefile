@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/08/26 21:42:34 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/08/27 17:17:30 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS=-Wall -Wextra -Werror #-g3 -fsanitize=address
 
 SRC= cub3d.c \
 	Parsing/read_map.c \
+	Parsing/config/config_is_set.c \
 	Parsing/directions/cardinal_directions.c Parsing/directions/parsing_textures.c \
 	Parsing/floor_ceiling/rgb_parse.c Parsing/floor_ceiling/checks.c Parsing/floor_ceiling/rgb.c Parsing/floor_ceiling/rgb_is_set.c\
 	Parsing/free/free_array.c  Parsing/free/free_textures.c  Parsing/free/free_rgb.c Parsing/free/free_all.c\
