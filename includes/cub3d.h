@@ -82,7 +82,9 @@ char	**to_rectangle(char **map, size_t line_length);
 size_t	tall_line(char **map);
 char	*get_line(char *line, size_t max);
 int		check_newline(char *map_1d);
+//*player*//
 
+int num_of_player(t_cub3d *cub3d);
 
 
 

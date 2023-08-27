@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:10:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 17:25:48 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:29:34 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@
 int	first_last_lines(char *line)
 {
 	int	i;
-
+	char *trimed_line;
 	i = 0;
-	while (line[i])
+	
+	trimed_line = ft_strtrim(line, " ");
+	while (trimed_line[i])
 	{
-		if (line[i] != '1' && line[i] != ' ')
-			return (0);
+		if (trimed_line[i] != '1' && trimed_line[i] != ' ')
+			return (free(trimed_line), 0);
 		i++;
 	}
+	free(trimed_line);
 	return (1);
 }
 

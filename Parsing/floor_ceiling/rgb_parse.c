@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:07:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 21:48:37 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:49:53 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,8 @@ char	*get_rgb(char *line)
 		return (NULL);
 	while (line[i])
 	{
-		if (!ft_isspace(line[i]))
-		{
 			rgb[j] = line[i];
 			j++;
-		}
 		i++;
 	}
 	rgb[j] = '\0';
@@ -40,12 +37,12 @@ char    *cut_rgb(char *rgb)
 {
 	char	*tmp;
 	
-	if (rgb[0] == 'F' && ft_isdigit(rgb[1]))
+	if (rgb[0] == 'F')
 	{
 		tmp = ft_substr(rgb, 0 + 1, ft_strlen(rgb) - 0);
 		return (tmp);
 	}
-	else if (rgb[0] == 'C' && ft_isdigit(rgb[0 + 1]))
+	else if (rgb[0] == 'C')
 	{
 		tmp = ft_substr(rgb, 0 + 1, ft_strlen(rgb) - 0);
 	    return (tmp);

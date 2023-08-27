@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   num_of_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 18:31:08 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/27 17:22:40 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/08/27 18:51:41 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/08/27 18:53:54 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	free_all(t_cub3d *cub3d)
+int num_of_player(t_cub3d *cub3d)
 {
-	free_textures(cub3d);
-	if (cub3d->map_2d)
-		free_array(cub3d->map_2d);
-	free(cub3d->map_1d);
+    int i;
+    int count;
+
+    i = -1;
+    count = 0;
+    while(cub3d->map_2d[++i])
+    {
+        if (ft_strchr(cub3d->map_2d[i], 'N') || ft_strchr(cub3d->map_2d[i], 'S')
+            || ft_strchr(cub3d->map_2d[i], 'E') || ft_strchr(cub3d->map_2d[i], 'W'))
+            count++;
+    }
+    if (count != 1)
+        return (EXIT_FAILURE);
+    return (EXIT_SUCCESS);
 }

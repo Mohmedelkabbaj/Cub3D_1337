@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:08:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/25 17:53:31 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:55:04 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 int is_surrounded(t_cub3d *cub3d)
 {
-	int	i;
+	int		i;
+	char	*line;
 
 	i = 0;
 	map_height(cub3d);
+	line = ft_strtrim(cub3d->map_2d[i], " ");
 	while(cub3d->map_2d[i])
 	{
-		if(!first_last_lines(cub3d->map_2d[0])
-			|| !first_last_lines(cub3d->map_2d[cub3d->map_height - 1])
-			|| !first_last_column(cub3d->map_2d[i]))
-				return (1);
+		if (i == 0 || i == cub3d->map_height - 1)
+		{
+			if (first_last_lines(line) == 0)
+				return (free(line), 1);
+		}
+		else
+		{
+			if (first_last_column(line) == 0)
+				return (free(line), 1);
+		}
 		i++;
 	}
-	return (0);
+	return (free(line), 0);
 }

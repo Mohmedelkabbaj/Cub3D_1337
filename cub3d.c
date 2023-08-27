@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/27 16:56:20 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:23:15 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,7 @@ int main(int ac, char *av[])
 		if (start_parsing(&cub3d) == EXIT_FAILURE || config_file_is_set(cub3d) == EXIT_FAILURE)
 		{
 			ft_putendl_fd("\033[0;31m 📛Error Invalid Map📛 \033[0m", 2);
-			free_textures(&cub3d);
-			if (cub3d.map_2d)
-				free_array(cub3d.map_2d);
-			free(cub3d.map_1d);
-			close(cub3d.fd);
-			return (1);
+			return (free_all(&cub3d), 1);
 		}
 		else
 		{
@@ -61,10 +56,7 @@ int main(int ac, char *av[])
 				Enter your Ray Casting code here
 			*/
 			// printf_test(cub3d);
-			if (cub3d.map_2d)
-				free_array(cub3d.map_2d);
-			free(cub3d.map_1d);
-			free_textures(&cub3d);
+			free_all(&cub3d);
 		}
 		close(cub3d.fd);
 		return (0);
