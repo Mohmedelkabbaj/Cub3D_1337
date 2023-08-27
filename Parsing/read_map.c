@@ -6,11 +6,23 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:51:52 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/26 21:37:53 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/27 11:57:44 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/cub3d.h"
+
+int	check_newline(char *map_1d)
+{
+	int	i;
+	
+	i = -1;
+	while(map_1d[++i])
+		if (map_1d[i] == '\n' && map_1d[i + 1] == '\n')
+			return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
+}
+
 
 int start_parsing(t_cub3d *cub3d)
 {
@@ -21,7 +33,6 @@ int start_parsing(t_cub3d *cub3d)
 	result = EXIT_SUCCESS;
 	while ((line = get_next_line(cub3d->fd)))
 	{
-		///line = ft_strtrim(line, " ");
 		if (line[0] == '\n')
 		{
 			free(line);
@@ -36,19 +47,21 @@ int start_parsing(t_cub3d *cub3d)
 		{
 			if (is_map_last(cub3d) == 1)
 			{
-				//map_hundled(cub3d, line);
 				cub3d->map_1d  = NULL;
 				cub3d->map_2d = NULL;
-				while (line)
+				if (line[0] != '\n' || line[0] != '\0' || line[0] != '\t' || line[0] != ' ')
 				{
-					cub3d->map_1d = ft_strjoin(cub3d->map_1d, line);
-					free(line);
-					line = NULL;
-					line = get_next_line(cub3d->fd);
+					while (line)
+					{
+						cub3d->map_1d = ft_strjoin(cub3d->map_1d, line);
+						free(line);
+						line = NULL;
+						line = get_next_line(cub3d->fd);
+					}
+					if (map_check(cub3d) || check_newline(cub3d->map_1d))
+						result = EXIT_FAILURE;
 				}
-				cub3d->map_2d = ft_split(cub3d->map_1d, '\n');
-				map_height(cub3d);
-				if (map_check(cub3d) == 1)
+				else
 					result = EXIT_FAILURE;
 			}
 			else
