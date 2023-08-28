@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 12:44:34 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/27 18:55:23 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/28 09:51:22 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,10 @@ int	map_check(t_cub3d *cub3d)
 	cub3d->map_2d = to_rectangle(cub3d->map_2d, tall_line(cub3d->map_2d));
 	if (check_inside_map(cub3d->map_2d) == 1)
 		return (1);
+	else
+	{
+		get_p_position(cub3d);
+		map_dimension(cub3d);
+	}
 	return (0);
 }
