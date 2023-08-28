@@ -1,2 +1,3 @@
 
-number of player
+in F and C must be a space after it like this "F 255,10,6" not LIKE THIS "F255,10,6"
+IF ANY SPACES AFTER TEXTURES ITS OKEY  NOT AN INVALIC CONFIG 

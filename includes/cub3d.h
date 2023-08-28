@@ -57,6 +57,14 @@ typedef struct s_cub3d{
 	t_map				map;
 }	t_cub3d;
 
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_cub3d	cub3d;
+}	t_mlx;
+
+
 
 //+initilization structure Functions +//
 void	init_textures(t_cub3d *cub3d);
