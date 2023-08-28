@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/28 15:03:50 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:17:57 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	printf_test(t_cub3d cub3d)
 	printf("position y : %d\n", cub3d.player.y);
 	printf("map x : %d\n", cub3d.map.x);
 	printf("map y : %d\n", cub3d.map.y);
+
+	//kdghdsfg
 }
 
 
