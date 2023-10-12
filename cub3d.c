@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/28 17:17:57 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:54:30 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	printf_test(t_cub3d cub3d)
 int main(int ac, char *av[])
 {
 	t_cub3d cub3d;
-
 	init_all(&cub3d);
 	if (ac == 2)
 	{
@@ -60,9 +59,11 @@ int main(int ac, char *av[])
 			/*
 				Enter your Ray Casting code here
 			*/
-			printf_test(cub3d);
+			
+			//printf_test(cub3d);
 			free_all(&cub3d);
 		}
+		
 		close(cub3d.fd);
 		return (0);
 	}

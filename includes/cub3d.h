@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
+# include <mlx.h>
 #include "../Library/Libft/libft.h"
 #include "../Library/Get_next_line/get_next_line.h"
 
@@ -64,7 +65,7 @@ typedef struct s_mlx
 	t_cub3d	cub3d;
 }	t_mlx;
 
-
+//!Parsing cardinal Functions +!//
 
 //+initilization structure Functions +//
 void	init_textures(t_cub3d *cub3d);

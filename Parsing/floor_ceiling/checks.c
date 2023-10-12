@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:38:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/27 18:45:37 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:37:18 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	result_length(char *line)
 	int	count;
 
 	i = 0;
+	count = 0;
 	while (line[i])
 	{
 		if (ft_isdigit(line[i]) || ft_isalpha(line[i]) || line[i] == ',')
