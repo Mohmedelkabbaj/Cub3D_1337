@@ -7,9 +7,6 @@
 	1337-42cursus cub3D
 </h1>
 
-<p align="center">
-	<b><i>Development repo for 42cursus' cub3D project</i></b><br>
-</p>
 
 <h3 align="center">
 	<a href="#about">About</a>
