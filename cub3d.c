@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/10/12 17:54:30 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:31:05 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ void	printf_test(t_cub3d cub3d)
 	printf("SOUTH : '%s'\n", cub3d.parse_direct.south_texture);	
 	printf("EAST : '%s'\n", cub3d.parse_direct.east_texture);
 	printf("WEST : '%s'\n", cub3d.parse_direct.west_texture);
-
 	printf("FLOOR : '%d,%d,%d'\n", cub3d.floor.r, cub3d.floor.g, cub3d.floor.b);
 	printf("CEILING : '%d,%d,%d'\n", cub3d.ceiling.r, cub3d.ceiling.g, cub3d.ceiling.b);
-
-	//printf("MAP : {%s}\n", cub3d.map_1d);
 	int i = 0;
 	while (cub3d.map_2d[i])
 	{
@@ -34,8 +31,6 @@ void	printf_test(t_cub3d cub3d)
 	printf("position y : %d\n", cub3d.player.y);
 	printf("map x : %d\n", cub3d.map.x);
 	printf("map y : %d\n", cub3d.map.y);
-
-	//kdghdsfg
 }
 
 
