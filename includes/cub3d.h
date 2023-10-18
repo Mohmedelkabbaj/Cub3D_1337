@@ -15,10 +15,16 @@
 
 #include <unistd.h>
 #include <stdio.h>
-# include <mlx.h>
+#include<math.h>
+#include <mlx.h>
 #include "../Library/Libft/libft.h"
 #include "../Library/Get_next_line/get_next_line.h"
 
+#define TILE_SIZE 32
+#define MAP_NUM_ROWS 13
+#define MAP_NUM_COLS 20
+#define MAP_H 1080
+#define MAP_W 1920
 typedef struct s_parse_direction
 {
 	char	*north_texture;
@@ -38,7 +44,21 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
+	int		raduis;
+	int		turn_direction;//-1 for left +1 for right or left (help me with changing the position of the player )
+	int		walk_direction;//-1 for back +1 for front or back
+	double	rotation_angle;//angle in radian
+	double	walk_speed;//the speed of the player
+	double	turn_speed;//the turn speed of the player
 }	t_player;
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 
 typedef struct s_map
 {
@@ -61,7 +81,8 @@ typedef struct s_cub3d{
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*mlx_win;
+	t_data	data;
 	t_cub3d	cub3d;
 }	t_mlx;
 
@@ -122,4 +143,9 @@ void	free_textures(t_cub3d *cub3d);
 void	free_rgb(char *rgb, char *tmp);
 void	free_all(t_cub3d *cub3d);
 
+
+//+Ray Casting Functions +//
+
+void	player_calcule(t_cub3d *cub3d);
+void    render(t_mlx *mlx, t_cub3d cub3d);
 #endif
