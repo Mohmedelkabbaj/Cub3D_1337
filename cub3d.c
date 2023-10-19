@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/10/18 17:19:33 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:30:59 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ int main(int ac, char *av[])
 		else
 		{
 			//+Enter your Ray Casting code here
+			mlx.mlx_ptr = mlx_init();
+			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, cub3d.map.x * TILE_SIZE, cub3d.map.y * TILE_SIZE, "cub3d");
 			render(&mlx, cub3d);
-			
+			mlx_hook(mlx.mlx_win, 2, 0, key_hook, &mlx);
+			mlx_loop(mlx.mlx_ptr);
 			
 			//printf_test(cub3d);
 			free_all(&cub3d);

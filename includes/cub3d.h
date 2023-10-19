@@ -25,6 +25,13 @@
 #define MAP_NUM_COLS 20
 #define MAP_H 1080
 #define MAP_W 1920
+
+//Keys
+#define KEY_UP 126
+#define KEY_DOWN 125
+#define KEY_RIGHT 124
+#define KEY_LEFT 123
+#define KEY_ESC 53
 typedef struct s_parse_direction
 {
 	char	*north_texture;
@@ -148,4 +155,5 @@ void	free_all(t_cub3d *cub3d);
 
 void	player_calcule(t_cub3d *cub3d);
 void    render(t_mlx *mlx, t_cub3d cub3d);
+int	key_hook(int keycode, t_mlx *mlx);
 #endif

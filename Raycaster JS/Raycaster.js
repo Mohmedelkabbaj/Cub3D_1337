@@ -48,12 +48,26 @@ class Player {
         this.moveSpeed = 2.0;
         this.rotaionSpeed = 2 * (Math.PI / 180 );
     }
+    update(){
+        this.rotationAngle += this.turnDirection * this.rotaionSpeed;
+
+        var moveStep = this.walkDirection * this.moveSpeed;
+
+        this.x = this.x + Math.cos(this.rotationAngle) * moveStep;
+        this.y = this.y + Math.sin(this.rotationAngle) * moveStep;
+   
+    }
     render (){
+        noStroke();
         fill("red");
         circle(this.x, this.y,this.raduis);
-    }
-    update(){
-
+        stroke("red");
+        line(
+            this.x,
+            this.y, 
+            this.x + Math.cos(this.rotationAngle) * 30,
+            this.y + Math.sin(this.rotationAngle) * 30
+        )
     }
 }
 
@@ -61,14 +75,27 @@ var grid = new Map();
 var  player = new Player();
 
 function keyPressed(){
-    if(keyCode == 37){
-        player.turnDirection = -1;
-    }else if(keyCode == 39){
-        player.turnDirection = 1;
-    }else if(keyCode == 38){
-        player.walkDirection = 1;
-    }else if(keyCode == 40){
+    if(keyCode == UP_ARROW){
+        player.walkDirection = +1;
+    }else if(keyCode == DOWN_ARROW){
         player.walkDirection = -1;
+    }else if(keyCode == RIGHT_ARROW){
+        player.turnDirection = +1;
+    }else if(keyCode == LEFT_ARROW){
+        player.turnDirection = -1;
+    }
+}
+
+function keyReleased()
+{
+    if(keyCode == UP_ARROW){
+        player.walkDirection = 0;
+    }else if(keyCode == DOWN_ARROW){
+        player.walkDirection = 0;
+    }else if(keyCode == RIGHT_ARROW){
+        player.turnDirection = 0;
+    }else if(keyCode == LEFT_ARROW){
+        player.turnDirection = 0;
     }
 }
 function setup()
