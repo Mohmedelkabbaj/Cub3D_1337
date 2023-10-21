@@ -30,7 +30,7 @@ void	draw_square(t_mlx *mlx, int x, int y, int size, int color)
 	}
 }
 
-void player_circle_render(t_mlx *mlx, t_player player, int color)
+void player_circle_render(t_mlx *mlx, t_player player)
 {
 	int	x_center = player.x * TILE_SIZE + TILE_SIZE / 2;
 	int	y_center = player.y * TILE_SIZE + TILE_SIZE / 2;
@@ -46,7 +46,7 @@ void player_circle_render(t_mlx *mlx, t_player player, int color)
 			{
 				int draw_x = x_center + x;
 				int draw_y = y_center + y;
-				my_mlx_pixel_put(&mlx->data, draw_x, draw_y, color);
+				my_mlx_pixel_put(&mlx->data, draw_x, draw_y, 0xff0000);
 			}
 			y++;
 		}
@@ -54,78 +54,74 @@ void player_circle_render(t_mlx *mlx, t_player player, int color)
 	}
 }
 
-
-int	move_player(t_mlx *mlx, int keycode)
+void	update_player(t_player *player)
 {
-	if (keycode == KEY_UP)
-	{
-		mlx->cub3d.player.x += cos(mlx->cub3d.player.rotation_angle) * mlx->cub3d.player.walk_speed;
-		mlx->cub3d.player.y += sin(mlx->cub3d.player.rotation_angle) * mlx->cub3d.player.walk_speed;
-	}
-	else if (keycode == KEY_DOWN)
-	{
-		mlx->cub3d.player.x -= cos(mlx->cub3d.player.rotation_angle) * mlx->cub3d.player.walk_speed;
-		mlx->cub3d.player.y -= sin(mlx->cub3d.player.rotation_angle) * mlx->cub3d.player.walk_speed;
-	}
-	else if (keycode == KEY_RIGHT)
-	{
-		mlx->cub3d.player.x += cos(mlx->cub3d.player.rotation_angle + M_PI_2) * mlx->cub3d.player.walk_speed;
-		mlx->cub3d.player.y += sin(mlx->cub3d.player.rotation_angle + M_PI_2) * mlx->cub3d.player.walk_speed;
-	}
-	else if (keycode == KEY_LEFT)
-	{
-		mlx->cub3d.player.x -= cos(mlx->cub3d.player.rotation_angle + M_PI_2) * mlx->cub3d.player.walk_speed;
-		mlx->cub3d.player.y -= sin(mlx->cub3d.player.rotation_angle + M_PI_2) * mlx->cub3d.player.walk_speed;
-	}
-	return (0);
+	float moveStep = player->walk_direction * player->walk_speed + player->step;
+	
+	player->rotation_angle += player->turn_direction * player->turn_speed;
+	player->x = player->x + cos(player->rotation_angle) * moveStep;
+	player->y = player->y + sin(player->rotation_angle) * moveStep;
 }
-int	key_hook(int keycode, t_mlx *mlx)
-{
-	if (keycode == KEY_UP)
-		move_player(mlx, keycode);
-	else if (keycode == KEY_DOWN)
-		move_player(mlx, keycode);
-	else if (keycode == KEY_RIGHT)
-		move_player(mlx, keycode);
-	else if (keycode == KEY_LEFT)
-		move_player(mlx, keycode);
-	else if (keycode == KEY_ESC)
-		exit(0);
-	mlx_clear_window(mlx->mlx_ptr, mlx->mlx_win);
-	render(mlx, mlx->cub3d);
 
+int	key_release(int key, t_mlx *mlx)
+{
+	(void)mlx;
+	if (key == KEY_UP)
+		mlx->cub3d.player.walk_direction = 0;
+	if (key == KEY_DOWN)
+		mlx->cub3d.player.walk_direction = 0;
+	if (key == KEY_RIGHT)
+		mlx->cub3d.player.turn_direction = 0;
+	if (key == KEY_LEFT)
+		mlx->cub3d.player.turn_direction = 0;
+	
 	return (0);
 }
 
 void	render(t_mlx *mlx, t_cub3d cub3d)
 {
-	
 	int	i;
 	int	j;
 
-
-	player_calcule(&cub3d);
-	printf("x = %d\n", cub3d.player.x);
-	printf("y = %d\n", cub3d.player.y);
+	
 	mlx->data.img = mlx_new_image(mlx->mlx_ptr, cub3d.map.x * 32, cub3d.map.y * 32);
 	mlx->data.addr = mlx_get_data_addr(mlx->data.img, &mlx->data.bits_per_pixel, &mlx->data.line_length, &mlx->data.endian);
-	mlx->mlx_win  = mlx_new_window(mlx->mlx_ptr, cub3d.map.x * 32, cub3d.map.y * 32, "Cub3D");
-	i = 0;
-	while (i < cub3d.map.x)
+	i = -1;
+	while (++i < cub3d.map.x)
 	{
-		j = 0;
-		while (j < cub3d.map.y)
+		j = -1;
+		while (++j < cub3d.map.y)
 		{
-			if (cub3d.map_2d[j][i] == '0' || cub3d.map_2d[j][i] == 'E' || cub3d.map_2d[j][i] == 'W' || cub3d.map_2d[j][i] == 'N' || cub3d.map_2d[j][i] == 'S')
+			if (cub3d.map_2d[j][i] == '1')
+				draw_square(mlx, i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, 0x000000);
+			else if (cub3d.map_2d[j][i] == '0')
 				draw_square(mlx, i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, 0xffffff);
-			else
-				draw_square(mlx, i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, 0x000000);           
-			j++;
 		}
-		i++;
 	}
-	player_circle_render(mlx, cub3d.player, 0xff0000);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->mlx_win, mlx->data.img, 0, 0);
-	
+	return ;	
+}
 
+int	key_press(int key, t_mlx *mlx)
+{
+	if (key == KEY_UP)
+		mlx->cub3d.player.walk_direction = 1;
+	if (key == KEY_DOWN)
+		mlx->cub3d.player.walk_direction = -1;
+	if (key == KEY_RIGHT)
+		mlx->cub3d.player.turn_direction = 1;
+	if (key == KEY_LEFT)
+		mlx->cub3d.player.turn_direction = -1;
+	if (key == KEY_ESC)
+		exit(0);
+	return (0);
+}
+
+int	game(t_mlx *mlx)
+{
+	//mlx_clear_window(mlx->mlx_ptr, mlx->mlx_win);
+	render(mlx, mlx->cub3d);
+	update_player(&mlx->cub3d.player);
+	player_circle_render(mlx, mlx->cub3d.player);
+	return (0);
 }

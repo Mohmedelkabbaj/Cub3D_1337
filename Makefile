@@ -6,13 +6,13 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/10/18 17:18:53 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/10/21 11:09:51 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=Cub3D
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 FRAMWORK = -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit -lm
 PATH = -I/usr/local/include
 

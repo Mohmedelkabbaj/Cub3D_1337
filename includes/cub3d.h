@@ -57,6 +57,7 @@ typedef struct s_player
 	double	rotation_angle;//angle in radian
 	double	walk_speed;//the speed of the player
 	double	turn_speed;//the turn speed of the player
+	int step;
 }	t_player;
 
 typedef struct	s_data {
@@ -154,6 +155,10 @@ void	free_all(t_cub3d *cub3d);
 //+Ray Casting Functions +//
 
 void	player_calcule(t_cub3d *cub3d);
-void    render(t_mlx *mlx, t_cub3d cub3d);
-int	key_hook(int keycode, t_mlx *mlx);
+int		key_press(int key, t_mlx *mlx);
+int		key_release(int key, t_mlx *mlx);
+
+void	render(t_mlx *mlx, t_cub3d cub3d);
+int	game(t_mlx *mlx);
+
 #endif
