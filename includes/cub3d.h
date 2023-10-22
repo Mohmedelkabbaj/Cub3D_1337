@@ -27,8 +27,8 @@
 #define MAP_W 1920
 
 //Keys
-#define KEY_UP 126
-#define KEY_DOWN 125
+#define KEY_UP 125
+#define KEY_DOWN 126
 #define KEY_RIGHT 124
 #define KEY_LEFT 123
 #define KEY_ESC 53
@@ -159,6 +159,7 @@ int		key_press(int key, t_mlx *mlx);
 int		key_release(int key, t_mlx *mlx);
 
 void	render(t_mlx *mlx, t_cub3d cub3d);
-int	game(t_mlx *mlx);
+int		game(t_mlx *mlx);
+int		close_window(t_mlx *mlx);
 
 #endif

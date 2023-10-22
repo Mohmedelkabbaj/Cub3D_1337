@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/10/21 18:46:39 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/22 15:55:12 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,7 @@ void	printf_test(t_cub3d cub3d)
 	printf("map y : %d\n", cub3d.map.y);
 }
 
-int	close_window(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->mlx_ptr, mlx->mlx_win);
-	printf("close window\n");
-	exit(0);
-}
+
 
 int main(int ac, char *av[])
 {
@@ -60,9 +55,10 @@ int main(int ac, char *av[])
 		{
 			//+Enter your Ray Casting code here
 			mlx.mlx_ptr = mlx_init();
-			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, mlx.cub3d.map.x * TILE_SIZE, mlx.cub3d.map.y * TILE_SIZE, "mlx.cub3d");
-			
+			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, 1920, 1080, "mlx.cub3d");
 			player_calcule(&mlx.cub3d);
+			render(&mlx, mlx.cub3d);
+
 			mlx_hook(mlx.mlx_win, 2, 0, key_press, &mlx);
 			mlx_hook(mlx.mlx_win, 3, 0, key_release, &mlx);
 			mlx_hook(mlx.mlx_win, 17, 0, close_window, &mlx);
