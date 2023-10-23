@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:38:46 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/10/22 15:55:46 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/23 17:48:58 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void    get_p_position(t_cub3d *cub3d)
             {
                 cub3d->player.x = cub3d->player.x * 32 + 16;
                 cub3d->player.y = cub3d->player.y * 32 + 16;
-                printf("position x : %d\n", cub3d->player.x);
-                printf("position y : %d\n", cub3d->player.y);
                 return ;
             }
             cub3d->player.x++;

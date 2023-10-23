@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/10/21 11:09:51 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/10/23 17:30:10 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,10 @@ SRC = cub3d.c \
       Parsing/map/map_lines.c \
       Parsing/map/map_check.c\
       RayCasting/player_calcule.c \
-      RayCasting/mapmini.c
+      RayCasting/mapmini.c \
+      RayCasting/line/line_draw.c \
+      RayCasting/hooks/keys.c \
+      RayCasting/hooks/checks.c \
       
 OBJ = $(SRC:.c=.o)
 

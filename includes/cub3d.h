@@ -27,11 +27,17 @@
 #define MAP_W 1920
 
 //Keys
-#define KEY_UP 125
-#define KEY_DOWN 126
-#define KEY_RIGHT 124
-#define KEY_LEFT 123
+#define KEY_UP 1
+#define KEY_DOWN 13
+#define KEY_RIGHT 0
+#define KEY_LEFT 2
 #define KEY_ESC 53
+
+//view
+#define VIEW_UP 125
+#define VIEW_DOWN 126
+#define VIEW_RIGHT 124
+#define VIEW_LEFT 123
 typedef struct s_parse_direction
 {
 	char	*north_texture;
@@ -57,6 +63,7 @@ typedef struct s_player
 	double	rotation_angle;//angle in radian
 	double	walk_speed;//the speed of the player
 	double	turn_speed;//the turn speed of the player
+	int		look;
 	int step;
 }	t_player;
 
@@ -73,12 +80,33 @@ typedef struct s_map
 	int		x;
 	int		y;
 }	t_map;
+
+typedef struct			s_image
+{
+	int					width;
+	int					height;
+	int					bits_per_pixel;
+	int					size_line;
+	int					endian;
+	void				*ptr;
+	int					*data;
+}						t_image;
+
+typedef struct s_img_data
+{
+	t_image	g_north;
+	t_image	g_south;
+	t_image	g_east;	
+	t_image	g_west;
+}	t_img_data;
+
 typedef struct s_cub3d{
 	char				*file_name;
 	int					fd;
 	char				*map_1d;
 	char				**map_2d;
 	int					map_height;
+	int					map_width;
 	t_parse_direction   parse_direct;
 	t_rgb				floor;
 	t_rgb				ceiling;
@@ -86,15 +114,32 @@ typedef struct s_cub3d{
 	t_map				map;
 }	t_cub3d;
 
+typedef struct			s_line
+{
+	float				x0;
+	float				y0;
+	float				x1;
+	float				y1;
+	int					dx;
+	int					dy;
+	int					steps;
+	float				xinc;
+	float				yinc;
+	float				x;
+	float				y;
+}						t_line;
 typedef struct s_mlx
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	t_data	data;
-	t_cub3d	cub3d;
+	void		*mlx_ptr;
+	void		*mlx_win;
+	t_img_data	imgs;
+	t_data		data;
+	t_cub3d		cub3d;
 }	t_mlx;
 
 //!Parsing cardinal Functions +!//
+
+
 
 //+initilization structure Functions +//
 void	init_textures(t_cub3d *cub3d);
@@ -127,6 +172,7 @@ int		textures_is_fill(t_cub3d *cub3d);
 int		floor_ceiling_is_color(t_cub3d *cub3d);
 int		is_map_last(t_cub3d *cub3d);
 void	map_height(t_cub3d *cub3d);
+void	map_width(t_cub3d *cub3d);
 int		first_last_lines(char *line);
 int		first_last_column(char *line);
 int		is_surrounded(t_cub3d *cub3d);
@@ -161,5 +207,9 @@ int		key_release(int key, t_mlx *mlx);
 void	render(t_mlx *mlx, t_cub3d cub3d);
 int		game(t_mlx *mlx);
 int		close_window(t_mlx *mlx);
-
+void  move_down_up(t_mlx *mlx);
+void  move_left_right(t_mlx *mlx);
+int check_wall(t_mlx *mlx, float x, float y);
+int	is_player(char c);
+// + line
 #endif

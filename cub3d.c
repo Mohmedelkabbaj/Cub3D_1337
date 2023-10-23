@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/10/22 15:55:12 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/23 17:48:31 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ void	printf_test(t_cub3d cub3d)
 		printf("MAP : {%s}\n", cub3d.map_2d[i]);
 		i++;
 	}
-	printf("position x : %d\n", cub3d.player.x);
-	printf("position y : %d\n", cub3d.player.y);
-	printf("map x : %d\n", cub3d.map.x);
-	printf("map y : %d\n", cub3d.map.y);
 }
 
 
@@ -55,7 +51,7 @@ int main(int ac, char *av[])
 		{
 			//+Enter your Ray Casting code here
 			mlx.mlx_ptr = mlx_init();
-			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, 1920, 1080, "mlx.cub3d");
+			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, mlx.cub3d.map.x * TILE_SIZE, mlx.cub3d.map.y * TILE_SIZE, "mlx.cub3d");
 			player_calcule(&mlx.cub3d);
 			render(&mlx, mlx.cub3d);
 

@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:10:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/27 17:29:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:13:49 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 	cub3d->map_height = 0;
 	while (cub3d->map_2d[cub3d->map_height])
 		cub3d->map_height++;
+}
+
+void	map_width(t_cub3d *cub3d)
+{
+	cub3d->map_width = 0;
+	while (cub3d->map_2d[0][cub3d->map_width])
+		cub3d->map_width++;	
 }
 
 int	first_last_lines(char *line)
