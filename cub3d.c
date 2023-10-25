@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:30:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/10/23 17:48:31 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:56:11 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int main(int ac, char *av[])
 			mlx_hook(mlx.mlx_win, 2, 0, key_press, &mlx);
 			mlx_hook(mlx.mlx_win, 3, 0, key_release, &mlx);
 			mlx_hook(mlx.mlx_win, 17, 0, close_window, &mlx);
+
 			mlx_loop_hook(mlx.mlx_ptr, game, &mlx);
 			mlx_loop(mlx.mlx_ptr);
 			

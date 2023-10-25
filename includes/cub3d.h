@@ -27,17 +27,25 @@
 #define MAP_W 1920
 
 //Keys
-#define KEY_UP 1
-#define KEY_DOWN 13
-#define KEY_RIGHT 0
-#define KEY_LEFT 2
+#define KEY_UP 13
+#define KEY_DOWN 1
+#define KEY_RIGHT 2
+#define KEY_LEFT 0
 #define KEY_ESC 53
 
 //view
-#define VIEW_UP 125
-#define VIEW_DOWN 126
 #define VIEW_RIGHT 124
 #define VIEW_LEFT 123
+
+#define FOV_ANGLE 60 * (M_PI / 180)
+#define WALL_STRIP_WIDTH 1
+#define NUM_RAYS (MAP_H / WALL_STRIP_WIDTH)
+
+#define NO 4.72
+#define SO 1.57
+#define WE 3.14
+#define EA 0
+
 typedef struct s_parse_direction
 {
 	char	*north_texture;
@@ -186,7 +194,7 @@ void    map_dimension(t_cub3d *cub3d);
 
 //*player*//
 int 	num_of_player(t_cub3d *cub3d);
-void    get_p_position(t_cub3d *cub3d);
+void	get_p_position(t_cub3d *cub3d);
 
 //+config file
 int		config_file_is_set(t_cub3d cub3d);
@@ -207,9 +215,10 @@ int		key_release(int key, t_mlx *mlx);
 void	render(t_mlx *mlx, t_cub3d cub3d);
 int		game(t_mlx *mlx);
 int		close_window(t_mlx *mlx);
-void  move_down_up(t_mlx *mlx);
-void  move_left_right(t_mlx *mlx);
-int check_wall(t_mlx *mlx, float x, float y);
-int	is_player(char c);
+void	move_down_up(t_mlx *mlx);
+void	move_left_right(t_mlx *mlx);
+int		check_wall(t_mlx *mlx, float x, float y);
+int		is_player(char c);
+void	look_left_right(t_mlx *mlx);
 // + line
 #endif
