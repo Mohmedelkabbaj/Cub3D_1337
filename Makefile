@@ -6,7 +6,7 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/10/29 15:42:10 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/10/30 15:07:20 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC =	cub3d.c $(wildcard ./Parsing/*.c) $(wildcard ./Parsing/config/*.c) $(wildc
 		$(wildcard ./Parsing/floor_ceiling/*.c) $(wildcard ./Parsing/free/*.c) \
 		$(wildcard ./Parsing/init_struct/*.c) $(wildcard ./Parsing/map/*.c) \
 		$(wildcard ./RayCasting/line/*.c) $(wildcard ./RayCasting/hooks/*.c) $(wildcard ./RayCasting/utils/*.c) \
+		$(wildcard ./Raycasting/ray/*.c)\
 
      
 OBJ = $(SRC:.c=.o)

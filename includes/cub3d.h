@@ -41,10 +41,10 @@
 #define WALL_STRIP_WIDTH 1
 #define NUM_RAYS (MAP_H / WALL_STRIP_WIDTH)
 
-#define NO 4.72
-#define SO 1.57
-#define WE 3.14
-#define EA 0
+#define NO 4.72 // N
+#define SO 1.57 // S
+#define WE 3.14 // W
+#define EA 0 // E
 
 typedef struct s_parse_direction
 {
@@ -138,10 +138,15 @@ typedef struct s_line
 	float x;
 	float y;
 } t_line;
+
 typedef struct s_mlx
 {
 	void *mlx_ptr;
 	void *mlx_win;
+	double h_x;
+	double h_y;
+	double v_x;
+	double v_y;
 	t_img_data imgs;
 	t_data data;
 	t_cub3d cub3d;
@@ -212,12 +217,14 @@ int key_press(int key, t_mlx *mlx);
 int key_release(int key, t_mlx *mlx);
 
 void render(t_mlx *mlx, t_cub3d cub3d);
+void my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int game(t_mlx *mlx);
 int close_window(t_mlx *mlx);
 void move_down_up(t_mlx *mlx);
-void move_left_right(t_mlx *mlx);
-int check_wall(t_mlx *mlx, float x, float y);
+int check_wall(t_mlx *mlx, double x, double y);
 int is_player(char c);
 void look_left_right(t_mlx *mlx);
+void ray(t_mlx *mlx, int color);
+void cast_ray(double ray_angle, t_mlx *mlx, int color);
 // + line
 #endif
