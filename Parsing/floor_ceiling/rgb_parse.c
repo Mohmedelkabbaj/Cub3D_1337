@@ -23,13 +23,13 @@ char	*get_rgb(char *line)
 	rgb = (char *)malloc(sizeof(char) * result_length(line) + 1);
 	if (rgb == NULL)
 		return (NULL);
-	while (line[i])
+	while (line[i] && line[i] != '\n')
 	{
-			rgb[j] = line[i];
-			j++;
+		rgb[j] = line[i];
+		j++;
 		i++;
 	}
-	rgb[j] = '\0';
+	// rgb[j] = '\0';
 	return (rgb);
 }
 

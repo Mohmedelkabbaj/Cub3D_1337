@@ -34,7 +34,7 @@ void	draw_line(t_mlx *mlx, int x0, int y0, int x1, int y1, int color)
 	int x = x0;
 	int y = y0;
 	int i = 0;
-	while (i <= max_delta)
+	while (i <= max_delta && x / 32 > 0 && y / 32 > 0 && x / 32 < 10 && y / 32 < 14)
 	{
 		my_mlx_pixel_put(&mlx->data, x, y, color);
 		x += step_x;
@@ -45,19 +45,45 @@ void	draw_line(t_mlx *mlx, int x0, int y0, int x1, int y1, int color)
 
 void	ft_horizontal_up(t_mlx *mlx)
 {
+	double a;
+	double b;
+
 	mlx->h_y = floor(mlx->cub3d.player.y / TILE_SIZE) * TILE_SIZE;
-	mlx->h_x = (mlx->cub3d.player.y - mlx->h_y) / tan(mlx->cub3d.player.rotation_angle);
-	while (check_wall(mlx, mlx->h_x, mlx->h_y))
+	mlx->h_x = mlx->h_x + ((mlx->h_x - mlx->h_y) / tan(mlx->cub3d.player.rotation_angle));
+	if(mlx->h_x >= mlx->cub3d.map.x || mlx->h_x < 0)
+	{
+		mlx->cub3d.map_width = mlx->cub3d.map.x;
+		mlx->cub3d.map_height = mlx->cub3d.map.y;
+		return;
+	}
+	if(check_wall(mlx, mlx->h_x, mlx->h_y))
+	{
+		return;
+	}
+	a = mlx->h_x;
+	b = mlx->h_y;
+	mlx->h_y -= TILE_SIZE;
+	mlx->h_x -= (b - mlx->h_y / tan(mlx->cub3d.player.rotation_angle));
+	b = mlx->h_y - a;
+	while (mlx->h_y > 0 && mlx->h_x < mlx->cub3d.map_width && !check_wall(mlx, mlx->h_x, mlx->h_y))
 	{
 		mlx->h_y -= TILE_SIZE;
-		mlx->h_x += (TILE_SIZE / tan(mlx->cub3d.player.rotation_angle));
+		mlx->h_x -= (b);
 	}
+	// // printf("%f %f \n", mlx->h_y / 32, mlx->h_x /32);
+	// if(check_wall(mlx, mlx->h_x, mlx->h_y))
+	// {
+	// 	mlx->h_x -= (TILE_SIZE / tan(mlx->cub3d.player.rotation_angle));
+	// 	mlx->h_y -= TILE_SIZE;
+	// }
 }
 
 void	ft_horizontal_down(t_mlx *mlx)
 {
-	mlx->h_y = floor(mlx->cub3d.player.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
+	mlx->h_y = floor(mlx->cub3d.player.y / TILE_SIZE) * TILE_SIZE + TILE_SIZE - 1;
 	mlx->h_x = mlx->h_y / tan(mlx->cub3d.player.rotation_angle);
+	// printf("%f %f \n", mlx->h_y / 32, mlx->h_x /32);
+	
 	while (check_wall(mlx, mlx->h_x, mlx->h_y))
 	{
 		mlx->h_x += (TILE_SIZE / tan(mlx->cub3d.player.rotation_angle));
@@ -146,7 +172,7 @@ int	ft_compare(t_mlx *mlx)
 
 void	ray(t_mlx *mlx, int color)
 {
-	mlx->cub3d.player.rotation_angle = 0.1;
+	//mlx->cub3d.player.rotation_angle = 0.1;
 
 	if (sin(mlx->cub3d.player.rotation_angle) >= 0)
 		ft_look_up(mlx);
@@ -154,8 +180,8 @@ void	ray(t_mlx *mlx, int color)
 		ft_look_down(mlx);
 	if (ft_compare(mlx))
 	{
-		printf(">>>>\n");
-		printf("x = %f, y = %f\n", mlx->v_x, mlx->v_y);
+		//printf(">>>>\n");
+		// printf("x = %f, y = %f\n", mlx->v_x, mlx->v_y);
 		draw_line(mlx, mlx->cub3d.player.x, mlx->cub3d.player.y, mlx->v_x, mlx->v_y, color);
 	}
 	else
