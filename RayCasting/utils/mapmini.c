@@ -82,18 +82,18 @@ int game(t_mlx *mlx)
 {
 	if (mlx->cub3d.player.walk_direction)
 	{
-		move_down_up(mlx);
-		render(mlx, mlx->cub3d);
+		//move_down_up(mlx);
+		//render(mlx, mlx->cub3d);
 	}
 	if (mlx->cub3d.player.turn_direction)
 	{
 		look_left_right(mlx);
-		render(mlx, mlx->cub3d);
+		//render(mlx, mlx->cub3d);
 	}
 	if (mlx->cub3d.player.look)
 	{
 		look_left_right(mlx);
-		render(mlx, mlx->cub3d);
 	}
+		render(mlx, mlx->cub3d);
 	return (0);
 }

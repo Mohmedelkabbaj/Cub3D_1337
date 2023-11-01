@@ -12,7 +12,7 @@
 
 NAME=Cub3D
 CC = cc
-CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 FRAMWORK = -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit -lm
 PATH = -I/usr/local/include
 
