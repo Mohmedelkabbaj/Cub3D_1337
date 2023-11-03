@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:38:47 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/03 18:40:53 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/11/03 22:02:30 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,29 @@ void cast_ray(double ray_angle, t_mlx *mlx, int color)
 		ray_y += sin(ray_angle);
 		if (check_wall(mlx, ray_x, ray_y))
 			break;
-		my_mlx_pixel_put(&mlx->data, (int)ray_x, (int)ray_y, color);
+		my_mlx_pixel_put(&mlx->data, (double)ray_x, (double)ray_y, color);
 	}
 }
 
+
 void ray(t_mlx *mlx, int color)
 {
-	double ray_angle = mlx->cub3d.player.rotation_angle - (FOV_ANGLE / 2);
-	double ray_increment = FOV_ANGLE / NUM_RAYS;
-	for (int i = 0; i < NUM_RAYS; i++)
+	double	ray_angle;
+	double	ray_increment;
+	int		i;
+	
+	ray_angle = mlx->cub3d.player.rotation_angle - (FOV_ANGLE / 2);
+	ray_increment = FOV_ANGLE / NUM_RAYS;
+	i = 0;
+	while (i < NUM_RAYS)
 	{
 		cast_ray(ray_angle, mlx, color);
 		ray_angle += ray_increment;
+		i++;
 	}
+	// for (int i = 0; i < NUM_RAYS; i++)
+	// {
+	// 	cast_ray(ray_angle, mlx, color);
+	// 	ray_angle += ray_increment;
+	// }
 }
