@@ -1,6 +1,6 @@
 #include "../../includes/cub3d.h"
 
-void player_calcule(t_cub3d *cub3d)
+void player_init(t_cub3d *cub3d)
 {
 	cub3d->player.raduis = 0;
 	cub3d->player.turn_direction = 0;

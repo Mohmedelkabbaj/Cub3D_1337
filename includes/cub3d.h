@@ -212,7 +212,7 @@ void free_all(t_cub3d *cub3d);
 
 //+Ray Casting Functions +//
 
-void player_calcule(t_cub3d *cub3d);
+void player_init(t_cub3d *cub3d);
 int key_press(int key, t_mlx *mlx);
 int key_release(int key, t_mlx *mlx);
 
