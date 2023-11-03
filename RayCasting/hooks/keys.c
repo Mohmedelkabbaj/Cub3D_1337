@@ -53,6 +53,8 @@ void look_left_right(t_mlx *mlx)
 
 void move_down_up(t_mlx *mlx)
 {
+	// Move according to the direction of the player
+	// (player.rotation_angle is the direction of the player)
 	float moveStep = mlx->cub3d.player.walk_direction * mlx->cub3d.player.walk_speed;
 	float newPlayerX = mlx->cub3d.player.x + cos(mlx->cub3d.player.rotation_angle) * moveStep;
 	float newPlayerY = mlx->cub3d.player.y + sin(mlx->cub3d.player.rotation_angle) * moveStep;
@@ -60,7 +62,5 @@ void move_down_up(t_mlx *mlx)
 	{
 		mlx->cub3d.player.x = newPlayerX;
 		mlx->cub3d.player.y = newPlayerY;
-
 	}
-
 }
