@@ -221,10 +221,11 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int game(t_mlx *mlx);
 int close_window(t_mlx *mlx);
 void move_down_up(t_mlx *mlx);
-int check_wall(t_mlx *mlx, double x, double y);
+int check_wall(t_mlx *mlx, float x, float y);
 int is_player(char c);
 void look_left_right(t_mlx *mlx);
 void ray(t_mlx *mlx, int color);
 void cast_ray(double ray_angle, t_mlx *mlx, int color);
+void my_mlx_pixel_put(t_data *data, int x, int y, int color);
 // + line
 #endif
