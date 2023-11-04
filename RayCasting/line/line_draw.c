@@ -25,7 +25,7 @@ void cast_ray(double ray_angle, t_mlx *mlx, int color)
 		ray_y += sin(ray_angle);
 		if (check_wall(mlx, ray_x, ray_y))
 			break;
-		my_mlx_pixel_put(&mlx->data, (double)ray_x, (double)ray_y, color);
+		my_mlx_pixel_put(&mlx->data, SCALE_FACTOR * (double)ray_x, SCALE_FACTOR * (double)ray_y, color);
 	}
 }
 
@@ -45,9 +45,4 @@ void ray(t_mlx *mlx, int color)
 		ray_angle += ray_increment;
 		i++;
 	}
-	// for (int i = 0; i < NUM_RAYS; i++)
-	// {
-	// 	cast_ray(ray_angle, mlx, color);
-	// 	ray_angle += ray_increment;
-	// }
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mel-kabb <mel-kabb@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/18 13:13:10 by hamaarou          #+#    #+#              #
-#    Updated: 2023/11/03 18:35:29 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/11/04 16:27:42 by mel-kabb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC =	cub3d.c $(wildcard ./Parsing/*.c) $(wildcard ./Parsing/config/*.c) $(wildc
 		$(wildcard ./Parsing/floor_ceiling/*.c) $(wildcard ./Parsing/free/*.c) \
 		$(wildcard ./Parsing/init_struct/*.c) $(wildcard ./Parsing/map/*.c) \
 		$(wildcard ./RayCasting/line/*.c) $(wildcard ./RayCasting/hooks/*.c) $(wildcard ./RayCasting/utils/*.c) \
-		$(wildcard ./Raycasting/ray/*.c) $(wildcard ./mlx/*.c) \
+		$(wildcard ./Raycasting/ray/*.c) $(wildcard ./mlx/*.c) $(wildcard ./RayCasting/3Dwalls/*.c) \
 
      
 OBJ = $(SRC:.c=.o)

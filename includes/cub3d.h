@@ -26,6 +26,9 @@
 #define MAP_H 1080
 #define MAP_W 1920
 
+//scale_factor
+#define SCALE_FACTOR 0.4
+
 // Keys
 #define KEY_UP 13	  // 13 //119
 #define KEY_DOWN 1    // 1 //115

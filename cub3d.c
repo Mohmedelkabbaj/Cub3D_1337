@@ -48,7 +48,7 @@ int main(int ac, char *av[])
 		else
 		{
 			mlx.mlx_ptr = mlx_init();
-			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, mlx.cub3d.map.x * TILE_SIZE, mlx.cub3d.map.y * TILE_SIZE, "mlx.cub3d");
+			mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, MAP_W, MAP_H, "cub3d");
 			player_init(&mlx.cub3d);
 			render(&mlx, mlx.cub3d);
 
