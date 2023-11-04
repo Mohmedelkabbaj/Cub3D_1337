@@ -49,7 +49,7 @@ void render(t_mlx *mlx, t_cub3d cub3d)
 	int i;
 	int j;
 
-	mlx->data.img = mlx_new_image(mlx->mlx_ptr, cub3d.map.x * 32, cub3d.map.y * 32);
+	mlx->data.img = mlx_new_image(mlx->mlx_ptr, cub3d.map.x * TILE_SIZE, cub3d.map.y * TILE_SIZE);
 	mlx->data.addr = mlx_get_data_addr(mlx->data.img, &mlx->data.bits_per_pixel, &mlx->data.line_length, &mlx->data.endian);
 
 	i = 0;

@@ -33,13 +33,13 @@ int check_wall(t_mlx *mlx, float x, float y)
 		return (1);
 	if (mlx->cub3d.map_2d[(int)(y / TILE_SIZE)][(int)(x / TILE_SIZE)] == '1')
 		return (1);
-	if (mlx->cub3d.map_2d[(int)((y - 1) / TILE_SIZE)][(int)(x / TILE_SIZE)] == '1')
+	if (mlx->cub3d.map_2d[(int)((y - 2) / TILE_SIZE)][(int)(x / TILE_SIZE)] == '1')
 		return (1);
-	if (mlx->cub3d.map_2d[(int)((y + 1) / TILE_SIZE)][(int)(x / TILE_SIZE)] == '1')
+	if (mlx->cub3d.map_2d[(int)((y + 2) / TILE_SIZE)][(int)(x / TILE_SIZE)] == '1')
 		return (1);
-	if (mlx->cub3d.map_2d[(int)(y / TILE_SIZE)][(int)((x - 1) / TILE_SIZE)] == '1')
+	if (mlx->cub3d.map_2d[(int)(y / TILE_SIZE)][(int)((x - 2) / TILE_SIZE)] == '1')
 		return (1);
-	if (mlx->cub3d.map_2d[(int)(y / TILE_SIZE)][(int)((x + 1) / TILE_SIZE)] == '1')
+	if (mlx->cub3d.map_2d[(int)(y / TILE_SIZE)][(int)((x + 2) / TILE_SIZE)] == '1')
 		return (1);
 	return (0);
 }
